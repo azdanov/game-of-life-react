@@ -60,18 +60,6 @@ class GameOfLife {
       }
     }
   }
-
-  display() {
-    let board = '';
-    for (let i = 0; i < this.columns; i += 1) {
-      for (let j = 0; j < this.rows; j += 1) {
-        board += this.board[i][j].display();
-      }
-      board += '\n';
-    }
-    // eslint-disable-next-line no-console
-    console.log(board);
-  }
 }
 
 export default GameOfLife;

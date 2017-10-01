@@ -1,7 +1,7 @@
 {
   "name": "game-of-life-react",
   "homepage": "https://azdanov.js.org/game-of-life-react",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "dependencies": {
     "gh-pages": "^1.0.0",

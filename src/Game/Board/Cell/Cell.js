@@ -3,18 +3,19 @@ import React from 'react';
 import './Cell.css';
 
 const Cell = (props: { state: number, previousState: number }) => {
-  let classNames = 'cell ';
+  let cellState = 'cell ';
+
   if (props.previousState === 0 && props.state === 1) {
-    classNames += 'blue';
+    cellState += 'birth';
   } else if (props.state === 1) {
-    classNames += 'transparent';
+    cellState += 'alive';
   } else if (props.previousState === 1 && props.state === 0) {
-    classNames += 'red';
+    cellState += 'death';
   } else {
-    classNames += 'black';
+    cellState += 'absent';
   }
 
-  return <div className={classNames} />;
+  return <div className={cellState} />;
 };
 
 export default Cell;

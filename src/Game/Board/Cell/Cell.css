@@ -3,18 +3,18 @@
   height: 20px;
 }
 
-.black {
+.alive {
   background-color: black;
 }
 
-.transparent {
+.absent {
   background-color: transparent;
 }
 
-.blue {
+.birth {
   background-color: blue;
 }
 
-.red {
+.death {
   background-color: red;
 }

@@ -7,23 +7,26 @@ import './Board.css';
 type Props = {
   columns: number,
   rows: number,
-  board: any,
+  board: Array<any>,
 };
 
 class Board extends Component<Props, any> {
-  state = { board: [] };
-
-  componentWillMount() {
-    this.init();
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      board: this.init(),
+    };
   }
 
-  init() {
-    const columns = this.props.columns;
-    const rows = this.props.rows;
-    const board = Create2DArray(columns);
+  componentWillReceiveProps() {
+    this.setState({ board: this.init() });
+  }
 
-    for (let i = 0; i < columns; i += 1) {
-      for (let j = 0; j < rows; j += 1) {
+  init(): Array<Array<Cell>> {
+    const board = Create2DArray(this.props.rows);
+
+    for (let i = 0; i < this.props.columns; i += 1) {
+      for (let j = 0; j < this.props.rows; j += 1) {
         board[i][j] = (
           <Cell
             key={`${i}${j}`}
@@ -33,7 +36,7 @@ class Board extends Component<Props, any> {
         );
       }
     }
-    this.setState({ board });
+    return board;
   }
 
   render() {
