@@ -1,14 +1,20 @@
 {
   "name": "game-of-life-react",
   "homepage": "https://azdanov.js.org/game-of-life-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.0.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.2.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
   },
   "scripts": {
+    "precommit": "lint-staged",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -19,6 +25,7 @@
     "eslint": "^4.3.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-prettier": "^2.6.0",
+    "eslint-config-react-app": "^2.0.1",
     "eslint-plugin-flowtype": "^2.37.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
@@ -26,5 +33,11 @@
     "eslint-plugin-react": "^7.1.0",
     "flow-bin": "^0.56.0",
     "prettier": "^1.7.2"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --trailing-comma=all --write",
+      "git add"
+    ]
   }
 }

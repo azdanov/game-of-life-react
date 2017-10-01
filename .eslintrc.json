@@ -1,14 +1,13 @@
 {
   "extends": [
     "plugin:flowtype/recommended",
+    "react-app",
+    "plugin:jsx-a11y/recommended",
     "airbnb",
     "prettier",
     "prettier/react"
   ],
-  "plugins": [
-    "flowtype",
-    "prettier"
-  ],
+  "plugins": ["flowtype", "jsx-a11y", "prettier"],
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
@@ -29,6 +28,7 @@
         "trailingComma": "all"
       }
     ],
-    "react/jsx-filename-extension": 0
+    "react/prefer-stateless-function": "warn",
+    "react/jsx-filename-extension": "off"
   }
 }
