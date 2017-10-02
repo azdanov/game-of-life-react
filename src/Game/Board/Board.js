@@ -5,6 +5,8 @@ import Create2DArray from '../../utils/create2DArray';
 import './Board.css';
 
 type Props = {
+  width: number,
+  height: number,
   columns: number,
   rows: number,
   board: Array<any>,
@@ -40,7 +42,17 @@ class Board extends Component<Props, any> {
   }
 
   render() {
-    return <div className="board">{this.state.board}</div>;
+    return (
+      <div
+        className="board"
+        style={{
+          width: `${this.props.width}px`,
+          height: `${this.props.height}px`,
+        }}
+      >
+        {this.state.board}
+      </div>
+    );
   }
 }
 

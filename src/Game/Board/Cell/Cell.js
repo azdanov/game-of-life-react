@@ -15,7 +15,9 @@ const Cell = (props: { state: number, previousState: number }) => {
     cellState += 'absent';
   }
 
-  return <div className={cellState} />;
+  return (
+    <div className={cellState} style={{ width: '44px', height: '44px' }} />
+  );
 };
 
 export default Cell;
