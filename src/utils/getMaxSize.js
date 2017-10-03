@@ -18,4 +18,9 @@ function getHeight() {
   );
 }
 
+function getMaxSize() {
+  return Math.min(getWidth(), getHeight());
+}
+
 export { getWidth, getHeight };
+export default getMaxSize();

@@ -19,6 +19,7 @@ class Cell {
 
   newState(newState: number) {
     this.state = newState;
+    return this;
   }
 }
 

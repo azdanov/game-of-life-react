@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import Cell from './Cell/Cell';
-import Create2DArray from '../../utils/create2DArray';
 import './Board.css';
 
 type Props = {
@@ -9,6 +8,8 @@ type Props = {
   height: number,
   columns: number,
   rows: number,
+  cellSize: number,
+  handleAddCell: Function,
   board: Array<any>,
 };
 
@@ -25,15 +26,19 @@ class Board extends Component<Props, any> {
   }
 
   init(): Array<Array<Cell>> {
-    const board = Create2DArray(this.props.rows);
-
+    const board = [];
     for (let i = 0; i < this.props.columns; i += 1) {
       for (let j = 0; j < this.props.rows; j += 1) {
+        if (!board[i]) board[i] = [];
         board[i][j] = (
           <Cell
-            key={`${i}${j}`}
+            key={`${i}-${j}`}
+            x={i}
+            y={j}
             state={this.props.board[i][j].state}
             previousState={this.props.board[i][j].previousState}
+            cellSize={this.props.cellSize}
+            handleAddCell={this.props.handleAddCell}
           />
         );
       }

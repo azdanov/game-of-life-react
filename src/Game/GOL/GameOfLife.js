@@ -1,13 +1,11 @@
 // @flow
 import Cell from './Cell';
-import create2DArray from '../../utils/create2DArray';
 
 class GameOfLife {
-  constructor(rows: number, columns: number) {
+  constructor(columns: number, rows: number) {
     this.columns = columns;
     this.rows = rows;
 
-    this.board = create2DArray(this.rows);
     this.init();
   }
 
@@ -18,7 +16,16 @@ class GameOfLife {
   init() {
     for (let i = 0; i < this.columns; i += 1) {
       for (let j = 0; j < this.rows; j += 1) {
+        if (!this.board[i]) this.board[i] = [];
         this.board[i][j] = new Cell(i, j);
+      }
+    }
+  }
+
+  clear() {
+    for (let i = 0; i < this.columns; i += 1) {
+      for (let j = 0; j < this.rows; j += 1) {
+        this.board[i][j].newState(0).updatePreviousState();
       }
     }
   }

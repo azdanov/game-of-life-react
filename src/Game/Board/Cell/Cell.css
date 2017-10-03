@@ -1,10 +1,13 @@
 .cell {
-  width: 20px;
-  height: 20px;
+  outline: 1px solid rgba(250, 250, 250, 1);
+}
+
+.cell:focus {
+  outline: 1px solid rgba(255, 112, 67, 1);
 }
 
 .alive {
-  background-color: black;
+  background-color: #37474f;
 }
 
 .absent {
@@ -12,9 +15,9 @@
 }
 
 .birth {
-  background-color: blue;
+  background-color: #78909c;
 }
 
 .death {
-  background-color: red;
+  background-color: #cfd8dc;
 }
